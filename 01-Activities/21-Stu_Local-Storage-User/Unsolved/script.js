@@ -13,14 +13,18 @@ function displayMessage(type, message) {
 }
 
 function renderLastRegistered() {
-  // Fill in code here to retrieve the last email and password.
-  // If they are null, return early from this function
-  // Else set the text of the userEmailSpan and userPasswordSpan 
-  // to the corresponding values form local storage
-  
+  var userEmail = window.localStorage.getItem("userEmail");
+  var userPassword = window.localStorage.getItem("userPassword");
+
+  if (userEmail === null) {
+    return;
+  } else {
+    userEmailSpan.textContent = userEmail;
+    userPasswordSpan.textContent = userPassword;
+  }
 }
 
-signUpButton.addEventListener("click", function(event) {
+signUpButton.addEventListener("click", function (event) {
   event.preventDefault();
 
   var email = document.querySelector("#email").value;
@@ -33,6 +37,9 @@ signUpButton.addEventListener("click", function(event) {
   } else {
     displayMessage("success", "Registered successfully");
 
-  // Save email and password to localStorage and render the last registered.
+    // Save email and password to localStorage and render the last registered.
+    window.localStorage.setItem("userEmail", email);
+    window.localStorage.setItem("userPassword", password);
+    renderLastRegistered();
   }
 });
