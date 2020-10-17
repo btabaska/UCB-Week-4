@@ -1,0 +1,17 @@
+.outer-div {
+  background-color: aquamarine;
+  width: 600px;
+  height: 600px;
+}
+
+.inner-div {
+  background-color: blueviolet;
+  width: 80%;
+  height: 80%;
+}
+
+.most-inner-div {
+  background-color: chocolate;
+  width: 80%;
+  height: 80%;
+}
